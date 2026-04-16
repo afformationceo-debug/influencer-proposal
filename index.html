@@ -175,12 +175,6 @@ body::before{content:'';position:fixed;top:-40%;left:-30%;width:160%;height:160%
 <div class="topbar">
   <div style="display:flex;align-items:center;gap:20px">
     <div class="topbar-logo">Influencer Discovery</div>
-    <nav class="topbar-nav">
-      <a class="active" onclick="scrollTo('#demo')">Dashboard</a>
-      <a onclick="scrollTo('#guide')">Guide</a>
-      <a onclick="scrollTo('#features')">Features</a>
-      <a onclick="scrollTo('#pricing')">Pricing</a>
-    </nav>
   </div>
   <span class="topbar-badge">SERVICE PROPOSAL</span>
 </div>
@@ -217,10 +211,13 @@ body::before{content:'';position:fixed;top:-40%;left:-30%;width:160%;height:160%
       <input type="text" id="kw-input" placeholder="키워드 입력 (예: kbeauty, fashion, skincare)" value="kbeauty">
       <select style="background:rgba(255,255,255,.06);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;color:var(--t);font-family:inherit;font-size:13px;outline:none" id="country-select">
         <option value="">All Countries</option>
-        <option value="KR">Korea</option>
         <option value="US">United States</option>
         <option value="JP">Japan</option>
         <option value="TW">Taiwan</option>
+        <option value="TH">Thailand</option>
+        <option value="VN">Vietnam</option>
+        <option value="ID">Indonesia</option>
+        <option value="GB">United Kingdom</option>
       </select>
       <input type="number" id="target-input" placeholder="Target" value="500" style="width:100px;background:rgba(255,255,255,.06);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;color:var(--t);font-family:inherit;font-size:13px;outline:none">
       <button class="btn btn-primary" onclick="startDemo()">Start Scraping</button>
@@ -258,24 +255,25 @@ body::before{content:'';position:fixed;top:-40%;left:-30%;width:160%;height:160%
     </div>
   </div>
 
-  <!-- Scraping Animation -->
+  <!-- Scraping Animation — Demo of actual production operation -->
   <div class="scrape-demo" style="margin-top:24px" id="scrape-demo" hidden>
     <div class="scrape-demo-header">
-      <h4><span class="live-dot"></span> Scraping in Progress</h4>
+      <h4><span class="live-dot"></span> Real-time Scraping Demo <span style="font-size:11px;color:var(--td);font-weight:400;margin-left:8px">* Actual production screen preview</span></h4>
       <span style="font-size:12px;color:var(--td)" id="scrape-progress">0 / 500</span>
     </div>
+    <p style="font-size:12px;color:var(--td);margin-bottom:12px;line-height:1.6">Below is a simulation of the actual scraping process. In production, this runs on our dedicated infrastructure — the dashboard shows real-time progress as influencers are discovered and filtered.</p>
     <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     <div class="scrape-log" id="scrape-log">
       <div><span class="time">[00:01]</span> <span class="info">Searching "kbeauty" on Instagram...</span></div>
-      <div><span class="time">[00:03]</span> <span class="ok">Found @beauty_jin (52.3K followers) — email: jin@beauty.com</span></div>
+      <div><span class="time">[00:03]</span> <span class="ok">Found @tokyo_glowup (52.3K followers) — email: glow@beauty.jp</span></div>
       <div><span class="time">[00:04]</span> <span class="skip">Skip @brand_official (business account)</span></div>
-      <div><span class="time">[00:05]</span> <span class="ok">Found @skincare_mina (28.1K followers) — email: mina@gmail.com</span></div>
-      <div><span class="time">[00:07]</span> <span class="ok">Found @glow_yuna (91.7K followers) — email: yuna.glow@naver.com</span></div>
+      <div><span class="time">[00:05]</span> <span class="ok">Found @skincare_yuki (28.1K followers) — email: yuki.skin@gmail.com</span></div>
+      <div><span class="time">[00:07]</span> <span class="ok">Found @taipei_beauty (91.7K followers) — email: beauty@taipei.tw</span></div>
       <div><span class="time">[00:08]</span> <span class="skip">Skip @cosmetics_shop (business account)</span></div>
-      <div><span class="time">[00:10]</span> <span class="ok">Found @makeup_sora (45.2K followers) — email: sora.makeup@gmail.com</span></div>
+      <div><span class="time">[00:10]</span> <span class="ok">Found @la_skinroutine (45.2K followers) — email: routine@gmail.com</span></div>
       <div><span class="time">[00:12]</span> <span class="info">Page 2 — scrolling for more results...</span></div>
-      <div><span class="time">[00:14]</span> <span class="ok">Found @daily_hana (33.8K followers) — email: hana@outlook.com</span></div>
-      <div><span class="time">[00:16]</span> <span class="ok">Found @routine_joy (67.4K followers) — email: joy.routine@gmail.com</span></div>
+      <div><span class="time">[00:14]</span> <span class="ok">Found @bangkok_glow (33.8K followers) — email: glow@outlook.co.th</span></div>
+      <div><span class="time">[00:16]</span> <span class="ok">Found @ny_beautylab (67.4K followers) — email: lab@beautynyc.com</span></div>
     </div>
   </div>
 </div>
@@ -340,7 +338,7 @@ body::before{content:'';position:fixed;top:-40%;left:-30%;width:160%;height:160%
       <div class="feature-icon">&#x1F30D;</div>
       <div>
         <h4>국가별 필터링</h4>
-        <p>AI가 프로필 내용을 분석하여 국가를 자동 판별합니다. 한국, 미국, 일본, 대만 등 주요 시장별 인플루언서를 분리 관리합니다.</p>
+        <p>AI가 프로필 내용을 분석하여 국가를 자동 판별합니다. 미국, 일본, 대만, 태국, 베트남 등 글로벌 시장별 인플루언서를 분리 관리합니다.</p>
       </div>
     </div>
     <div class="feature">
@@ -412,33 +410,33 @@ body::before{content:'';position:fixed;top:-40%;left:-30%;width:160%;height:160%
 // === Mock Data ===
 const MOCK_DATA = {
   ig: [
-    {name:'beauty_jin',nick:'Jin Beauty',followers:52300,email:'jin@beauty.com',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'kbeauty',date:'2026-04-16',color:'#e1306c'},
-    {name:'skincare_mina',nick:'Mina Skincare',followers:28100,email:'mina@gmail.com',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'skincare',date:'2026-04-16',color:'#833ab4'},
-    {name:'glow_yuna',nick:'Yuna Glow',followers:91700,email:'yuna.glow@naver.com',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'kbeauty',date:'2026-04-15',color:'#f77737'},
-    {name:'makeup_sora',nick:'Sora Makeup',followers:45200,email:'sora.makeup@gmail.com',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'makeup',date:'2026-04-15',color:'#e1306c'},
-    {name:'daily_hana',nick:'Hana Daily',followers:33800,email:'hana@outlook.com',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'beauty',date:'2026-04-15',color:'#833ab4'},
-    {name:'routine_joy',nick:'Joy Routine',followers:67400,email:'joy.routine@gmail.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'kbeauty',date:'2026-04-14',color:'#f77737'},
-    {name:'aesthetic_lisa',nick:'Lisa Aesthetic',followers:124000,email:'lisa.ae@gmail.com',type:'influencer',country:'TW',flag:'&#127481;&#127484;',kw:'kbeauty',date:'2026-04-14',color:'#e1306c'},
-    {name:'skin_tokyo',nick:'Tokyo Skin',followers:89500,email:'tokyo.skin@yahoo.co.jp',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'skincare',date:'2026-04-14',color:'#833ab4'},
-    {name:'beauty_ling',nick:'Ling Beauty',followers:76200,email:'ling@163.com',type:'influencer',country:'TW',flag:'&#127481;&#127484;',kw:'beauty',date:'2026-04-13',color:'#f77737'},
-    {name:'glow_sarah',nick:'Sarah Glow',followers:41600,email:'sarah.glow@gmail.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'kbeauty',date:'2026-04-13',color:'#e1306c'},
+    {name:'tokyo_glowup',nick:'Tokyo Glow',followers:52300,email:'glow@beauty.jp',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'kbeauty',date:'2026-04-16',color:'#e1306c'},
+    {name:'skincare_yuki',nick:'Yuki Skincare',followers:28100,email:'yuki.skin@gmail.com',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'skincare',date:'2026-04-16',color:'#833ab4'},
+    {name:'taipei_beautylab',nick:'Taipei Beauty Lab',followers:91700,email:'lab@taipeibeauty.tw',type:'influencer',country:'TW',flag:'&#127481;&#127484;',kw:'kbeauty',date:'2026-04-15',color:'#f77737'},
+    {name:'la_skinroutine',nick:'LA Skin Routine',followers:45200,email:'routine@gmail.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'makeup',date:'2026-04-15',color:'#e1306c'},
+    {name:'bangkok_glow',nick:'Bangkok Glow',followers:33800,email:'glow@outlook.co.th',type:'influencer',country:'TH',flag:'&#127481;&#127469;',kw:'beauty',date:'2026-04-15',color:'#833ab4'},
+    {name:'ny_beautylab',nick:'NY Beauty Lab',followers:67400,email:'lab@beautynyc.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'kbeauty',date:'2026-04-14',color:'#f77737'},
+    {name:'aesthetic_mei',nick:'Mei Aesthetic',followers:124000,email:'mei.ae@gmail.com',type:'influencer',country:'TW',flag:'&#127481;&#127484;',kw:'kbeauty',date:'2026-04-14',color:'#e1306c'},
+    {name:'osaka_skincare',nick:'Osaka Skin',followers:89500,email:'skin@yahoo.co.jp',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'skincare',date:'2026-04-14',color:'#833ab4'},
+    {name:'hanoi_beauty',nick:'Hanoi Beauty',followers:76200,email:'beauty@hanoi.vn',type:'influencer',country:'VN',flag:'&#127483;&#127475;',kw:'beauty',date:'2026-04-13',color:'#f77737'},
+    {name:'london_skinlab',nick:'London Skin Lab',followers:41600,email:'skin.lab@gmail.co.uk',type:'influencer',country:'GB',flag:'&#127468;&#127463;',kw:'kbeauty',date:'2026-04-13',color:'#e1306c'},
   ],
   tt: [
-    {name:'kbeauty_queen',nick:'K-Beauty Queen',followers:234000,email:'queen@tiktok.kr',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'kbeauty',date:'2026-04-16',color:'#fe2c55'},
+    {name:'beauty_queen_tw',nick:'Beauty Queen TW',followers:234000,email:'queen@beauty.tw',type:'influencer',country:'TW',flag:'&#127481;&#127484;',kw:'kbeauty',date:'2026-04-16',color:'#fe2c55'},
     {name:'skincare_guru99',nick:'Skincare Guru',followers:187000,email:'guru99@gmail.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'skincare',date:'2026-04-16',color:'#25f4ee'},
     {name:'beauty_hack_jp',nick:'Beauty Hacks JP',followers:98700,email:'beautyhack@yahoo.co.jp',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'beauty',date:'2026-04-15',color:'#fe2c55'},
-    {name:'glow_up_daily',nick:'Daily Glow Up',followers:156000,email:'glow.daily@gmail.com',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'kbeauty',date:'2026-04-15',color:'#25f4ee'},
+    {name:'jakarta_glow',nick:'Jakarta Glow',followers:156000,email:'glow@jakarta.id',type:'influencer',country:'ID',flag:'&#127470;&#127465;',kw:'kbeauty',date:'2026-04-15',color:'#25f4ee'},
     {name:'makeup_tutorial_tw',nick:'Makeup TW',followers:67300,email:'makeup.tw@gmail.com',type:'influencer',country:'TW',flag:'&#127481;&#127484;',kw:'makeup',date:'2026-04-15',color:'#fe2c55'},
     {name:'routine_check',nick:'Routine Check',followers:203000,email:'routine@check.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'skincare',date:'2026-04-14',color:'#25f4ee'},
-    {name:'skin_first_kr',nick:'Skin First KR',followers:312000,email:'skinfirst@naver.com',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'kbeauty',date:'2026-04-14',color:'#fe2c55'},
-    {name:'aesthetic_vibes',nick:'Aesthetic Vibes',followers:89400,email:'vibes@aesthetic.com',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'beauty',date:'2026-04-13',color:'#25f4ee'},
+    {name:'thai_beauty_daily',nick:'Thai Beauty Daily',followers:312000,email:'daily@thaibeauty.co.th',type:'influencer',country:'TH',flag:'&#127481;&#127469;',kw:'kbeauty',date:'2026-04-14',color:'#fe2c55'},
+    {name:'aesthetic_vibes_jp',nick:'Aesthetic Vibes',followers:89400,email:'vibes@aesthetic.jp',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'beauty',date:'2026-04-13',color:'#25f4ee'},
   ],
   tw: [
     {name:'beautyinsider',nick:'Beauty Insider',followers:45600,email:'insider@beauty.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'beauty',date:'2026-04-16',color:'#1d9bf0'},
-    {name:'kbeauty_news',nick:'K-Beauty News',followers:32100,email:'news@kbeauty.kr',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'kbeauty',date:'2026-04-16',color:'#1d9bf0'},
+    {name:'tokyo_skincare',nick:'Tokyo Skincare',followers:32100,email:'skin@tokyo.jp',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'kbeauty',date:'2026-04-16',color:'#1d9bf0'},
     {name:'skincare_tips_jp',nick:'Skincare Tips JP',followers:28900,email:'tips.jp@gmail.com',type:'influencer',country:'JP',flag:'&#127471;&#127477;',kw:'skincare',date:'2026-04-15',color:'#1d9bf0'},
     {name:'glow_reviews',nick:'Glow Reviews',followers:67800,email:'reviews@glow.com',type:'influencer',country:'US',flag:'&#127482;&#127480;',kw:'beauty',date:'2026-04-15',color:'#1d9bf0'},
-    {name:'beauty_kr_daily',nick:'Beauty KR',followers:19800,email:'beauty.kr@naver.com',type:'influencer',country:'KR',flag:'&#127472;&#127479;',kw:'kbeauty',date:'2026-04-14',color:'#1d9bf0'},
+    {name:'saigon_beauty',nick:'Saigon Beauty',followers:19800,email:'beauty@saigon.vn',type:'influencer',country:'VN',flag:'&#127483;&#127475;',kw:'kbeauty',date:'2026-04-14',color:'#1d9bf0'},
     {name:'makeup_lover_tw',nick:'Makeup Lover TW',followers:41200,email:'lover.tw@gmail.com',type:'influencer',country:'TW',flag:'&#127481;&#127484;',kw:'makeup',date:'2026-04-14',color:'#1d9bf0'},
   ],
 };
@@ -497,7 +495,7 @@ function startDemo() {
   const names = ['luna_beauty','skin_master','glow_queen','daily_care','aesthetic_pro',
     'beauty_lab','skin_journal','makeup_diary','glow_studio','routine_master',
     'beauty_note','skin_secret','glow_diary','care_daily','style_glow'];
-  const emails = ['@gmail.com','@naver.com','@yahoo.com','@outlook.com','@beauty.kr'];
+  const emails = ['@gmail.com','@yahoo.co.jp','@yahoo.com','@outlook.com','@beauty.tw'];
   const followers = ['12.3K','28.7K','45.1K','67.9K','91.2K','134K','256K'];
 
   let count = 0;
@@ -528,12 +526,6 @@ function startDemo() {
       log.innerHTML = `<div><span class="time">[${ts}]</span> <span class="info">Demo complete! In production, this continues until target is reached.</span></div>` + log.innerHTML;
     }
   }, 800);
-}
-
-function scrollTo(sel) {
-  document.querySelector(sel).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.topbar-nav a').forEach(a => a.classList.remove('active'));
-  event.target.classList.add('active');
 }
 
 // Init
